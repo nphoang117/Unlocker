@@ -52,15 +52,7 @@ const SearchResults = props => {
       );
 
       console.log(response);
-      Alert.alert(
-        'Thành công',
-        'Đơn đặt lịch sửa khóa của bạn đã được xác nhận!'[
-          {
-            text: 'Về trang chủ',
-            onPress: () => navigation.navigate('Home'),
-          }
-        ],
-      );
+      navigation.navigate('OrderPage', {id: response.data.createOrder.id});
     } catch (e) {
       console.error(e);
     }

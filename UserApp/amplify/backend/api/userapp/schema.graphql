@@ -4,17 +4,22 @@ type User @model {
   email: String!
 
   orders: [Order] @connection(keyName: "byUser", fields: ["id"])
+  locksmith: Locksmith @connection(fields: ["id"])
 }
 
-type Locksmith @model {
+type Locksmith @model @key(name: "byUser", fields: ["userId"]) {
   id: ID!
 
   type: String!
   latitude: Float
   longitude: Float
   heading: Float
+  isActive: Boolean
 
   orders: [Order] @connection(keyName: "byLocksmith", fields: ["id"])
+
+  userId: ID!
+  user: User @connection(fields: ["userId"])
 }
 
 type Order
@@ -22,9 +27,10 @@ type Order
   @key(name: "byUser", fields: ["userId"])
   @key(name: "byLocksmith", fields: ["lockSmithId", "createdAt"]) {
   id: ID!
-  createdAt: ID!
+  createdAt: String!
 
   type: String!
+  status: String
 
   originLatitude: Float!
   originLongitude: Float!
@@ -37,6 +43,10 @@ type Order
 
   lockSmithId: ID!
   locksmith: Locksmith @connection(fields: ["lockSmithId"])
+}
 
-  status: String!
+type Subscription {
+  onOrderUpdated(id: ID!): Order @aws_subscribe(mutations: ["updateOrder"])
+  onLocksmithUpdated(id: ID!): Locksmith
+    @aws_subscribe(mutations: ["updateLocksmith"])
 }

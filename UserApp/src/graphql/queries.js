@@ -12,16 +12,37 @@ export const getUser = /* GraphQL */ `
           id
           createdAt
           type
+          status
           originLatitude
           originLongitude
           destLatitude
           destLongitude
           userId
           lockSmithId
-          status
           updatedAt
         }
         nextToken
+      }
+      locksmith {
+        id
+        type
+        latitude
+        longitude
+        heading
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -42,6 +63,17 @@ export const listUsers = /* GraphQL */ `
         orders {
           nextToken
         }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -57,21 +89,44 @@ export const getLocksmith = /* GraphQL */ `
       latitude
       longitude
       heading
+      isActive
       orders {
         items {
           id
           createdAt
           type
+          status
           originLatitude
           originLongitude
           destLatitude
           destLongitude
           userId
           lockSmithId
-          status
           updatedAt
         }
         nextToken
+      }
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -91,8 +146,17 @@ export const listLocksmiths = /* GraphQL */ `
         latitude
         longitude
         heading
+        isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -107,6 +171,7 @@ export const getOrder = /* GraphQL */ `
       id
       createdAt
       type
+      status
       originLatitude
       originLongitude
       destLatitude
@@ -119,6 +184,17 @@ export const getOrder = /* GraphQL */ `
         orders {
           nextToken
         }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -129,13 +205,21 @@ export const getOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+        isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
       }
-      status
       updatedAt
     }
   }
@@ -151,6 +235,7 @@ export const listOrders = /* GraphQL */ `
         id
         createdAt
         type
+        status
         originLatitude
         originLongitude
         destLatitude
@@ -170,10 +255,11 @@ export const listOrders = /* GraphQL */ `
           latitude
           longitude
           heading
+          isActive
+          userId
           createdAt
           updatedAt
         }
-        status
         updatedAt
       }
       nextToken

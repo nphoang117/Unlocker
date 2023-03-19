@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 50,
     bottom: 80,
-    left: Dimensions.get('window').width / 2 - 37,
+    left: Dimensions.get('window').width / 2 - 30,
   },
   goText: {
     fontSize: 30,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 50,
     top: 30,
-    left: Dimensions.get('window').width / 2 - 50,
+    left: Dimensions.get('window').width / 2 - 45,
   },
   balanceText: {
     fontSize: 20,

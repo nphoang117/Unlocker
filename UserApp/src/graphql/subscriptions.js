@@ -1,6 +1,117 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onOrderUpdated = /* GraphQL */ `
+  subscription OnOrderUpdated($id: ID!) {
+    onOrderUpdated(id: $id) {
+      id
+      createdAt
+      type
+      status
+      originLatitude
+      originLongitude
+      destLatitude
+      destLongitude
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      lockSmithId
+      locksmith {
+        id
+        type
+        latitude
+        longitude
+        heading
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      updatedAt
+    }
+  }
+`;
+export const onLocksmithUpdated = /* GraphQL */ `
+  subscription OnLocksmithUpdated($id: ID!) {
+    onLocksmithUpdated(id: $id) {
+      id
+      type
+      latitude
+      longitude
+      heading
+      isActive
+      orders {
+        items {
+          id
+          createdAt
+          type
+          status
+          originLatitude
+          originLongitude
+          destLatitude
+          destLongitude
+          userId
+          lockSmithId
+          updatedAt
+        }
+        nextToken
+      }
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
 export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
@@ -12,16 +123,37 @@ export const onCreateUser = /* GraphQL */ `
           id
           createdAt
           type
+          status
           originLatitude
           originLongitude
           destLatitude
           destLongitude
           userId
           lockSmithId
-          status
           updatedAt
         }
         nextToken
+      }
+      locksmith {
+        id
+        type
+        latitude
+        longitude
+        heading
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -39,16 +171,37 @@ export const onUpdateUser = /* GraphQL */ `
           id
           createdAt
           type
+          status
           originLatitude
           originLongitude
           destLatitude
           destLongitude
           userId
           lockSmithId
-          status
           updatedAt
         }
         nextToken
+      }
+      locksmith {
+        id
+        type
+        latitude
+        longitude
+        heading
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -66,16 +219,37 @@ export const onDeleteUser = /* GraphQL */ `
           id
           createdAt
           type
+          status
           originLatitude
           originLongitude
           destLatitude
           destLongitude
           userId
           lockSmithId
-          status
           updatedAt
         }
         nextToken
+      }
+      locksmith {
+        id
+        type
+        latitude
+        longitude
+        heading
+        isActive
+        orders {
+          nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -90,21 +264,44 @@ export const onCreateLocksmith = /* GraphQL */ `
       latitude
       longitude
       heading
+      isActive
       orders {
         items {
           id
           createdAt
           type
+          status
           originLatitude
           originLongitude
           destLatitude
           destLongitude
           userId
           lockSmithId
-          status
           updatedAt
         }
         nextToken
+      }
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -119,21 +316,44 @@ export const onUpdateLocksmith = /* GraphQL */ `
       latitude
       longitude
       heading
+      isActive
       orders {
         items {
           id
           createdAt
           type
+          status
           originLatitude
           originLongitude
           destLatitude
           destLongitude
           userId
           lockSmithId
-          status
           updatedAt
         }
         nextToken
+      }
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -148,21 +368,44 @@ export const onDeleteLocksmith = /* GraphQL */ `
       latitude
       longitude
       heading
+      isActive
       orders {
         items {
           id
           createdAt
           type
+          status
           originLatitude
           originLongitude
           destLatitude
           destLongitude
           userId
           lockSmithId
-          status
           updatedAt
         }
         nextToken
+      }
+      userId
+      user {
+        id
+        username
+        email
+        orders {
+          nextToken
+        }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -175,6 +418,7 @@ export const onCreateOrder = /* GraphQL */ `
       id
       createdAt
       type
+      status
       originLatitude
       originLongitude
       destLatitude
@@ -187,6 +431,17 @@ export const onCreateOrder = /* GraphQL */ `
         orders {
           nextToken
         }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -197,13 +452,21 @@ export const onCreateOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+        isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
       }
-      status
       updatedAt
     }
   }
@@ -214,6 +477,7 @@ export const onUpdateOrder = /* GraphQL */ `
       id
       createdAt
       type
+      status
       originLatitude
       originLongitude
       destLatitude
@@ -226,6 +490,17 @@ export const onUpdateOrder = /* GraphQL */ `
         orders {
           nextToken
         }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -236,13 +511,21 @@ export const onUpdateOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+        isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
       }
-      status
       updatedAt
     }
   }
@@ -253,6 +536,7 @@ export const onDeleteOrder = /* GraphQL */ `
       id
       createdAt
       type
+      status
       originLatitude
       originLongitude
       destLatitude
@@ -265,6 +549,17 @@ export const onDeleteOrder = /* GraphQL */ `
         orders {
           nextToken
         }
+        locksmith {
+          id
+          type
+          latitude
+          longitude
+          heading
+          isActive
+          userId
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -275,13 +570,21 @@ export const onDeleteOrder = /* GraphQL */ `
         latitude
         longitude
         heading
+        isActive
         orders {
           nextToken
+        }
+        userId
+        user {
+          id
+          username
+          email
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
       }
-      status
       updatedAt
     }
   }

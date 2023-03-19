@@ -1,0 +1,16 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-userapp-dev-144518-authRole",
+      "UnauthRoleArn": "arn:aws:iam::381227780717:role/amplify-userapp-dev-144518-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::381227780717:role/amplify-userapp-dev-144518-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-userapp-dev-144518-deployment",
+      "UnauthRoleName": "amplify-userapp-dev-144518-unauthRole",
+      "StackName": "amplify-userapp-dev-144518",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:381227780717:stack/amplify-userapp-dev-144518/2d35d5b0-b8ce-11ed-a5f3-06d80c91def0",
+      "AmplifyAppId": "d15iylcq7sy635",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-userapp-dev-144518-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    }
+  }
+}
